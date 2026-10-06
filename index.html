@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meri Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact</a>
+</nav>
+    <h1>Namaste, Main RAJA JI </h1>
+    
+<img src="IMG-20260831-WA0099.jpg" alt="RAJA JI" width="250">
+
+   <p>Welcome to meri personal website!</p>
+
+    <h2>Mere Baare Mein</h2>
+
+<p>
+    Namaste! Main RAJA JI hoon.
+    Ye meri personal website hai.
+    Yahan aap mere baare mein jaan sakte hain
+    aur mujhse contact kar sakte hain.
+</p>
+    </p>
+
+    <button onclick="showContact()">Contact Me</button>
+
+<p id="contact"></p>
+<div class="social">
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+</div>
+<script>
+function showContact() {
+    document.getElementById("contact").innerHTML =
+        "📞 Contact: 8619160548";
+}
+</script>
+
+</body>
+</html>
