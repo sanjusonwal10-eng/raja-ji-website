@@ -9,15 +9,36 @@
 <nav>
     <a href="#home">Home</a>
     <a href="#about">About Me</a>
+
     <a href="#contact">Contact</a>
 </nav>
-    <h1>Namaste, Main RAJA JI </h1>
+    <h1> Main RAJA JI </h1>
     
 <img src="IMG-20260831-WA0099.jpg" alt="RAJA JI" width="250">
 
    <p>Welcome to meri personal website!</p>
 
-    <h2>Mere Baare Mein</h2>
+    <section id="about">
+        <section id="skills">
+    <h2>💪 My Skills</h2>
+
+    <div class="skill">💻 Computer</div>
+    <div class="skill">🌐 Website Making</div>
+    <div class="skill">📱 Mobile Technology</div>
+    <div class="skill">🚀 Learning New Things</div>
+</section>
+    <h2>🌟 Mere Baare Mein</h2>
+
+    <p>
+        Hello! Mera naam <b>RAJA JI</b> hai.
+        Welcome to meri personal website!
+    </p>
+
+    <p>
+        Mujhe naye kaam seekhna aur technology ke saath
+        kuch naya banana pasand hai. 😊
+    </p>
+</section>
 
 <p>
     Namaste! Main RAJA JI hoon.
@@ -33,13 +54,34 @@
 <div class="social">
     <a href="https://www.instagram.com/" target="_blank">Instagram</a>
     <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+    <p id="contact"></p>
+<section id="contact-section">
+    <h2>📞 Contact Me</h2>
+    <p>Mujhse sampark karne ke liye neeche button dabayein.</p>
+
+    <button onclick="showContact()">
+        Contact Me
+    </button>
+</script>
 </div>
 <script>
 function showContact() {
     document.getElementById("contact").innerHTML =
         "📞 Contact: 8619160548";
 }
+r
+<script>
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
 </script>
+<footer>
+    © 2026 RAJA JI | All Rights Reserved
+</footer>
+ 
 
 </body>
+<button onclick="toggleDarkMode()">
+    🌙 Dark Mode
+</button>
 </html>
