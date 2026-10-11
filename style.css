@@ -1,12 +1,12 @@
 body {
-    background-color: lightblue;
+    background-color: rgb(42, 158, 197);
     text-align: center;
     font-family: Arial, sans-serif;
     padding-top: 100px;
 }
 
 h1 {
-    color: darkblue;
+    color: rgb(38, 38, 73);
     font-size: 50px;
 }
 
@@ -20,7 +20,7 @@ p {
     border-radius: 50%;
     border: 5px solid white;
 }button {
-    background-color: darkblue;
+    background-color: rgb(40, 40, 138);
     color: white;
     border: none;
     padding: 12px 25px;
@@ -29,7 +29,7 @@ p {
     cursor: pointer;
     margin-top: 15px;
 }nav {
-    background-color: darkblue;
+    background-color: rgb(180, 180, 240);
     padding: 15px;
     margin-bottom: 30px;
 }
@@ -42,7 +42,7 @@ nav a {
 }
 
 nav a:hover {
-    color: yellow;
+    color: rgb(22, 22, 9);
 }
 
 button:hover {
@@ -71,4 +71,117 @@ button:hover {
     background-color: darkblue;
     color: white;
     font-size: 16px;
+}@media (max-width: 600px) {
+    h1 {
+        font-size: 35px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 15px;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}#about {
+    background-color: white;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#about h2 {
+    color: darkblue;
+    font-size: 30px;
+}
+
+#about p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+}#skills {
+    background-color: white;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#skills h2 {
+    color: darkblue;
+    font-size: 30px;
+}
+
+.skill {
+    background-color: lightblue;
+    margin: 12px 0;
+    padding: 12px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}#contact-section {
+    background-color: white;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#contact-section h2 {
+    color: darkblue;
+    font-size: 30px;
+}
+
+#contact-section p {
+    font-size: 18px;
+    line-height: 1.6;
+}.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode p {
+    color: white;
+}
+
+.dark-mode #about,
+.dark-mode #skills,
+.dark-mode #contact-section {
+    background-color: #222222;
+    color: white;
+}
+
+.dark-mode .skill {
+    background-color: #333333;
+    color: white;
+}h1 {
+    animation: welcome 1.5s ease-in-out;
+}
+
+@keyframes welcome {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
