@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAJA JI Racing</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101010;color:white;text-align:center;font-family:Arial,sans-serif}
+h1{color:#ff3030;margin:16px 0 8px}
+#score{font-size:22px;margin:10px}
+#game{position:relative;width:min(92vw,360px);height:480px;margin:auto;background:#333;border:5px solid white;overflow:hidden}
+.roadline{position:absolute;left:49%;width:5px;height:65px;background:white}
+.car{position:absolute;width:42px;height:66px;border-radius:10px;bottom:15px;font-size:32px;line-height:62px}
+#player{left:calc(50% - 21px);background:#e22}
+.enemy{top:-70px;background:#168cff}
+#coin{position:absolute;top:-40px;font-size:28px}
+button{padding:13px 22px;margin:10px 5px;border:0;border-radius:10px;background:#ff3030;color:white;font-size:18px;font-weight:bold}
+#message{font-size:19px;margin:12px}
+</style>
+</head>
+<body>
+<h1>🏁 RAJA JI RACING 🏁</h1>
+<div id="score">स्कोर: 0</div>
+<div id="game">
+<div class="roadline" style="top:60px"></div>
+<div class="roadline" style="top:200px"></div>
+<div class="roadline" style="top:340px"></div>
+<div id="player" class="car">🏎️</div>
+<div id="enemy" class="car enemy">🚙</div>
+<div id="coin">🪙</div>
+</div>
+<div>
+<button onclick="move(-1)">⬅️ बाएँ</button>
+<button onclick="move(1)">दाएँ ➡️</button>
+</div>
+<div id="message">गेम शुरू करने के लिए Start दबाओ!</div>
+<button onclick="startGame()">▶ START GAME</button>
+<script>
+const player=document.getElementById('player');
+const enemy=document.getElementById('enemy');
+const coin=document.getElementById('coin');
+const scoreBox=document.getElementById('score');
+const message=document.getElementById('message');
+const game=document.getElementById('game');
+let lane=1, enemyLane=0, coinLane=2, score=0, running=false, timer=null, enemyY=-70, coinY=-40;
+function move(dir){
+ if(!running)return;
+ lane=Math.max(0,Math.min(2,lane+dir));
+ player.style.left=(game.clientWidth*(lane*0.3+0.05))+'px';
+}
+function startGame(){
+ clearInterval(timer);
+ lane=1;enemyLane=0;coinLane=2;score=0;enemyY=-70;coinY=-40;
+ running=true;
+ player.style.left=(game.clientWidth*0.35)+'px';
+ enemy.style.left=(game.clientWidth*(enemyLane*0.3+0.05))+'px';
+ coin.style.left=(game.clientWidth*(coinLane*0.3+0.08))+'px';
+ scoreBox.textContent='स्कोर: 0';
+ message.textContent='शानदार! गाड़ी बचाकर चलाओ!';
+ timer=setInterval(()=>{
+  enemyY+=6+Math.min(score/10,8);coinY+=5;
+  enemy.style.top=enemyY+'px';coin.style.top=coinY+'px';
+  if(enemyY>game.clientHeight){
+   enemyY=-70;enemyLane=Math.floor(Math.random()*3);
+   enemy.style.left=(game.clientWidth*(enemyLane*0.3+0.05))+'px';
+   score+=1;
+  }
+  if(coinY>game.clientHeight){
+   coinY=-40;coinLane=Math.floor(Math.random()*3);
+   coin.style.left=(game.clientWidth*(coinLane*0.3+0.08))+'px';
+  }
+  if(enemyLane===lane && enemyY>game.clientHeight-110 && enemyY<game.clientHeight-10){
+   endGame();return;
+  }
+  if(coinLane===lane && coinY>game.clientHeight-100 && coinY<game.clientHeight){
+   score+=5;coinY=-40;
+  }
+  scoreBox.textContent='स्कोर: '+score;
+ },40);
+}
+function endGame(){
+ running=false;clearInterval(timer);
+ message.textContent='गेम ओवर! आपका स्कोर: '+score;
+}
+document.addEventListener('keydown',e=>{
+ if(e.key==='ArrowLeft')move(-1);
+ if(e.key==='ArrowRight')move(1);
+});
+</script>
+</body>
+</html>
